@@ -1,0 +1,16 @@
+jobs:
+  include:
+  - stage: test
+    script:
+      - echo "--"
+  - stage: test
+    if: env(tier) = stack
+    script:
+      - sleep 2
+      - |
+        if [ $current == 0 ];then
+            echo "---"
+        fi
+os: linux
+dist: xenial
+language: shell
